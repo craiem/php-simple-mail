@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>PHP 5.3 Simple Mail by eoghanobrien</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>PHP 5.3 Simple Mail</h1>
+        <p>Simple PHP 5.3 Email Class with Chainable Methods</p>
+
+        <p class="view"><a href="https://github.com/eoghanobrien/php-simple-mail">View the Project on GitHub <small>eoghanobrien/php-simple-mail</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/eoghanobrien/php-simple-mail/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/eoghanobrien/php-simple-mail/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/eoghanobrien/php-simple-mail">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>README</h1>
+
+<p><a href="https://travis-ci.org/eoghanobrien/php-simple-mail"><img src="https://travis-ci.org/eoghanobrien/php-simple-mail.png?branch=master" alt="Build Status"></a></p>
+
+<h2>Description</h2>
+
+<p>Simple Mail Class provides a simple, chainable PHP class for sending basic emails</p>
+
+<pre><code>$mailer = new Simple_Mail(TRUE); // Set to TRUE to enable exception throwing
+$send   = $mailer-&gt;setTo('youremail@gmail.com', 'Your Email')
+             -&gt;setSubject('Test Message')
+             -&gt;setFrom('no-reply@domain.com', 'Domain.com')
+             -&gt;addMailHeader('Reply-To', 'no-reply@domain.com', 'Domain.com')
+             -&gt;addMailHeader('Cc', 'bill@example.com', 'Bill Gates')
+             -&gt;addMailHeader('Bcc', 'steve@example.com', 'Steve Jobs')
+             -&gt;addGenericHeader('X-Mailer', 'PHP/' . phpversion())
+             -&gt;addGenericHeader('Content-Type', 'text/html; charset="utf-8"')
+             -&gt;setMessage('&lt;strong&gt;This is a test message.&lt;/strong&gt;')
+             -&gt;setWrap(100)
+             -&gt;send();
+echo ($send) ? 'Email sent successfully' : 'Could not send email';
+</code></pre>
+
+<h4>Sending an Attachment</h4>
+
+<p>If you are sending an attachment there is no need to add any addGenericHeader()'s. To properly send the attachments the necessary headers will be set for you. You can also chain as many attachments as you want (see example).</p>
+
+<pre><code>$mailer = new Simple_Mail(TRUE); // Set to TRUE to enable exception throwing
+$send   = $mailer-&gt;setTo('youremail@gmail.com', 'Your Email')
+                 -&gt;setSubject('Test Message')
+                 -&gt;setFrom('no-reply@domain.com', 'Domain.com')
+                 -&gt;addMailHeader('Reply-To', 'no-reply@domain.com', 'Domain.com')
+                 -&gt;addMailHeader('Cc', 'bill@example.com', 'Bill Gates')
+                 -&gt;addMailHeader('Bcc', 'steve@example.com', 'Steve Jobs')
+                 -&gt;addAttachment('example/pbXBsZSwgY2hh.jpg', 'lolcat_finally_arrived.jpg')
+                 -&gt;addAttachment('example/lolcat_what.jpg')
+                 -&gt;setMessage('&lt;strong&gt;This is a test message.&lt;/strong&gt;')
+                 -&gt;setWrap(100)
+                 -&gt;send();
+echo ($send) ? 'Email sent successfully' : 'Could not send email';
+</code></pre>
+
+<h2>License</h2>
+
+<p>php-simple-mail is free and unencumbered public domain software. For more information, see <a href="http://unlicense.org/">http://unlicense.org/</a> or the accompanying UNLICENSE file.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/eoghanobrien">eoghanobrien</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
