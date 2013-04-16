@@ -660,9 +660,7 @@ class Simple_Mail
         );
 
         return strtr(
-            filter_var(
-                $data, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH
-            ),
+            $data,
             $rule
         );
     }
